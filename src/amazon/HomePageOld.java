@@ -47,13 +47,13 @@ public class HomePageOld {
 
     // test search box
 
-    @Test()
-    public void testCheckSearchBox(){
-        checkSearchBox();
-        String expectedText="\"Mask\"";
-        String actualText=driver.findElement(By.xpath("//*[@id=\"search\"]/span/div/span/h1/div/div[1]/div/div/span[3]")).getText();
-        Assert.assertEquals(actualText,expectedText,"testing");
- }
+//    @Test()
+//    public void testCheckSearchBox(){
+//        checkSearchBox();
+//        String expectedText="\"Mask\"";
+//        String actualText=driver.findElement(By.xpath("//*[@id=\"search\"]/span/div/span/h1/div/div[1]/div/div/span[3]")).getText();
+//        Assert.assertEquals(actualText,expectedText,"testing");
+// }
 
 
 
