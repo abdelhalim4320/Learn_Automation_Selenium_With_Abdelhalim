@@ -58,6 +58,7 @@ public class TestAmazon extends HomePageOld{
     }
 
     // second way
+    @Test
     public void verifyAmazonLogo1(){
         boolean expectedAmazonLogo=true;
         boolean actualAmazonLogo=driver.findElement(By.id("nav-logo-sprites")).isDisplayed();
@@ -118,7 +119,7 @@ public class TestAmazon extends HomePageOld{
     }
 
     @Test()
-    public void testSignOut(){
+    public void testSignOut() throws InterruptedException {
         // sign in firs bu using test sign in method
         driver.findElement(By.xpath("//*[@id=\"nav-link-accountList\"]")).click();
         driver.findElement(By.xpath("//*[@id=\"ap_email\"]")).sendKeys("hamlatabdelhalim@gmail.com");
@@ -131,6 +132,7 @@ public class TestAmazon extends HomePageOld{
         Actions act=new Actions(driver);
         WebElement element= driver.findElement(By.xpath("//*[@id=\"nav-link-accountList\"]/span[1]"));
         act.moveToElement(element).perform();
+        Thread.sleep(3000);
 
         driver.findElement(By.xpath("//*[@id=\"nav-item-signout\"]/span")).click();
         String expectedPage="Amazon Sign-In";
@@ -410,6 +412,17 @@ public class TestAmazon extends HomePageOld{
         Assert.assertEquals(actualTitle,expectedTitle,"language changed ");
 
     }
+
+    @Test()
+    public void testCheckSearchBox1() {
+        driver.findElement(By.id("twotabsearchtextbox")).sendKeys("Iphone 11");
+     driver.findElement(By.xpath("//input[@id='nav-search-submit-button']")).click();
+        String expectedText = "\"Iphone 11\"";
+        String actualText = driver.findElement(By.xpath("//*[@id=\"search\"]/span/div/span/h1/div/div[1]/div/div/span[3]")).getText();
+        Assert.assertEquals(actualText, expectedText, "testing");
+
+    }
+
 
 
 
